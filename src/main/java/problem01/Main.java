@@ -3,7 +3,6 @@ package problem01;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class Main {
 	
 	// 게임 변수들
@@ -14,6 +13,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		System.out.println(randomNumber);
+		
 		// 키보드 입력을 받기 위해 Scanner 생성
 		Scanner scanner = new Scanner(System.in);
 		
@@ -22,23 +23,31 @@ public class Main {
 	
 			System.out.print( "[" + min + "-" + max + "] 사이의 값 입력:" );
 			int answer = scanner.nextInt();
+			count ++;
 			
-			boolean result = checkAnswer( answer );
-			if ( result ) {
+			//boolean result = checkAnswer( answer );
+			if (randomNumber > answer) {
+
+				min = answer;
+			}
+			
+			else if(randomNumber < answer) {
+
+				max = answer;
+			}
+			else { 
+				System.out.println("\n맞췄습니다. 총 실행 횟수는 " + count + "번 입니다.");
 				break;
 			}
-		
-			System.out.println("");
 		}
 		
-		// 키보드 닫기
 		scanner.close();
-		
-		// 결과 출력
-		System.out.println("\n맞췄습니다. 총 실행 횟수는 " + count + "번 입니다.");
+		// 키보드 닫기
 	}
 	
-	public static boolean checkAnswer(int answer) {
-		return true;
-	}
+/*	public static boolean checkAnswer(int answer) {
+		
+			return true;
+		
+	}*/
 }
